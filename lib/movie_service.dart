@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class MovieService {
-  final String apiKey = "a75dca30b3b198b905d5ba55375f64a9"; // TMDb API Key
+  final String apiKey = dotenv.env['TMDB_API_KEY'] ?? '';
   final String baseUrl = "https://api.themoviedb.org/3";
 
   Future<List> fetchMovies({
